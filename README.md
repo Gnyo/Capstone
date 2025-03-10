@@ -32,3 +32,56 @@ Week 7	🛠 최적화 & UI 개선	- 앱 성능 최적화 (불필요한 API 호�
 Week 8	🏁 최종 테스트 & 배포	- 주요 기능 테스트 (버그 수정)
 - Android/iOS 빌드 후 배포
 - 사용성 테스트 및 피드백 반영
+
+
+✅ 1. 개발 환경 구축 (무료 도구 사용)
+할 일	사용 도구	설명
+코드 편집기 설치	VS Code	무료 & 플러그인 지원
+모바일 앱 프레임워크 선택	React Native + Expo	크로스 플랫폼 지원 (Android & iOS)
+UI 라이브러리 사용	React Native Paper / TailwindCSS (NativeWind)	무료 UI 컴포넌트 활용
+버전 관리 & 협업	GitHub (프라이빗 저장소 무료)	코드 백업 & 협업 가능
+✅ 2. 앱 개발 (기능별 해야 할 일)
+🎨 UI/UX 디자인
+할 일	사용 도구	설명
+와이어프레임 디자인	Figma (무료 플랜)	UI 레이아웃 설계
+아이콘 & 그래픽	Phosphor Icons / Material Icons	무료 아이콘 라이브러리
+🛠 기능 개발
+기능	해야 할 일	사용 도구
+✅ 방(캐릭터) 꾸미기	- 사용자별 프로필 생성 (색상, 테마 설정)
+- 방(또는 캐릭터) 선택 기능 개발	Firestore (무료)
+✅ 일정 공유 (캘린더)	- 일정 추가, 수정, 삭제 구현
+- RSVP 기능 개발 (참석 여부 선택)	react-native-calendars (무료)
+✅ 사용자 로그인	- Firebase Authentication 사용
+- 이메일 로그인 지원	Firebase Auth (무료)
+✅ 실시간 데이터 저장	- Firestore 데이터베이스 구축
+- 보안 규칙 설정 (인증된 사용자만 접근)	Firebase Firestore (무료 한도 내 사용)
+✅ 푸시 알림	- Firebase Cloud Messaging 연동	FCM (무료)
+✅ 3. APK 빌드 & 배포 (무료 방식)
+할 일	사용 도구	설명
+APK 파일 빌드	Expo EAS Build (무료 플랜)	expo build:android -t apk 사용
+배포	직접 배포 (Google Drive, 웹사이트 등)	앱스토어 없이 APK 배포
+Firebase 설정	SHA 키 등록 (Firebase Auth 사용 시)	Firebase 콘솔에서 SHA 키 등록
+📅 개발 일정 (6~8주 기준)
+주차	해야 할 일
+Week 1~2	프로젝트 기획 + UI 디자인 (Figma) + 환경 세팅 (Expo, Firebase)
+Week 3~4	방 꾸미기 기능 개발 + 사용자 프로필 관리 (Firestore 연동)
+Week 5~6	일정 공유 기능 + 캘린더 구현 + RSVP 기능 추가
+Week 7	푸시 알림 기능 추가 + 성능 최적화
+Week 8	APK 빌드 + 최종 테스트 + 배포
+🔥 최종 정리 (무료 도구만 사용)
+✅ 앱 개발
+
+React Native + Expo (무료) → 크로스 플랫폼 개발
+Firebase (무료 한도 내 사용) → 데이터 저장, 로그인, 푸시 알림
+✅ 디자인 & 관리
+
+Figma (무료 플랜) → UI 디자인
+GitHub (무료 프라이빗 저장소) → 코드 관리
+✅ APK 배포 (무료)
+
+Expo EAS Build (무료 플랜 사용 가능)
+APK 파일 직접 배포 (Google Drive, GitHub 등)
+👉 최종 결론: APK 배포 + 무료 개발 환경 OK!
+✅ 모든 개발 도구 무료 사용 가능
+✅ Firebase 무료 한도 내에서 유지 가능 (추후 확장 가능)
+✅ Google Play 없이 APK 직접 배포 가능
