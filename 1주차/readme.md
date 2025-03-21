@@ -1,5 +1,8 @@
 # Capstone Design 01
 
+## 기획서 작성
+[Wearther 기획서](https://github.com/Gnyo/Capstone/blob/main/README.md)
+
 ## 앱 벤치마킹
 
 ### 🧩 기능 비교표
