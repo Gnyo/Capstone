@@ -167,9 +167,8 @@ export default App;
 
 ### [Kakao](https://developers.kakao.com/) API 키 발급 받기
 
-### src/api/location.js 파일 작성 
-```js
-const KAKAO_API_KEY = "내 KAKAO REST API 키";
+### Kakao API 연동
+- 403 오류 발생 ☞ headers 문제
 
+> 백엔드 우회 프록시 사용 (Node.js 서버로 요청 보내기)
 
-```
