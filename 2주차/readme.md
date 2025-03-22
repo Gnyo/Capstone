@@ -1,106 +1,175 @@
 # Capstone Design 02
 
-## 환경 세팅
-### 1. expo 설치
-### 2. React Native 프로젝트 생성 → wearther
-### 3. 스마트폰에 Expo go 앱 설치(구글 플레이스토어)
-### 4. QR코드로 스캔하여 정상적인 실행 확인
+## ⚙️ 환경 세팅
+### React 프로젝트 생성(Vite 사용)
+
+![image](https://github.com/user-attachments/assets/5a3c3e1b-fbdb-478b-8c4d-3e186e5782df) |
+---|
 
 ---
-## 날씨 API 연동 테스트 
-### 1. [OpenWeatherMap](https://openweathermap.org/) API 키 발급받기
-### 2. Expo 프로젝트에서 API 요청하기
-expo-location 설치 (현재 위치 가져오기)
-### 3. constants/`weatherApi.ts` 작성
-```ts
-export const getWeather = async (lat: number, lon: number) => {
-  try {
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=YOUR_API_KEY`
-    );
-    const json = await response.json();
+## 🌦️ 날씨 API 연동 테스트 
+### [OpenWeatherMap](https://openweathermap.org/) API 키 발급받기
+### src/api/weatherApi.js 생성
+```js
+const API_KEY = "**내 API 키**";
 
-    return {
-      temperature: json.main.temp,
-      weather: json.weather[0].main,
-      location: json.name,
-    };
-  } catch (error) {
-    console.error("날씨 데이터를 가져오지 못했습니다:", error);
-    return null;
-  }
-};
-
-```
-
-### 4. hooks/`useLocation.ts` 작성
-```ts
-import * as Location from "expo-location";
-import { useState, useEffect } from "react";
-
-// 위치 정보 타입 정의
-interface LocationType {
-  latitude: number;
-  longitude: number;
-}
-
-// 커스텀 훅: 위치 정보 가져오기
-export const useLocation = () => {
-  const [location, setLocation] = useState<LocationType | null>(null);
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
-
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("위치 권한이 필요합니다.");
-        return;
-      }
-
-      let currentLocation = await Location.getCurrentPositionAsync({});
-      setLocation({
-        latitude: currentLocation.coords.latitude,
-        longitude: currentLocation.coords.longitude,
-      });
-    })();
-  }, []);
-
-  return { location, errorMsg };
+export const getWeatherByCity = async (city = "Seoul") => {
+  const response = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
+  ); // units=metric: 섭씨, (imperial: 화씨)
+  const data = await response.json();
+  return data;
 };
 ```
+### App.jsx 수정
+```js
+import { useEffect, useState } from "react";
+import { getWeatherByCity } from "./api/weather"; // ← 방금 만든 API 함수 가져오기
+import "./App.css";
 
-### 5. App.tsx 생성
-```tsx
-import React, { useEffect, useState } from "react";
-import { View, Text, ActivityIndicator } from "react-native";
-import { useLocation } from "./hooks/useLocation"; // 현재 위치 가져오기
-import { getWeather } from "./constants/weatherApi"; // 날씨 API 불러오기
-
-export default function App() {
-  const { location, errorMsg } = useLocation();
+function App() {
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
-    if (location) {
-      getWeather(location.latitude, location.longitude).then(setWeather);
-    }
-  }, [location]);
-
-  if (errorMsg) return <Text>{errorMsg}</Text>;
-  if (!weather) return <ActivityIndicator size="large" color="#0000ff" />;
+    getWeatherByCity("Seoul").then((data) => {
+      console.log("🌤️ 날씨 데이터:", data);
+      setWeather(data);
+    });
+  }, []);
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>위치: {weather.location}</Text>
-      <Text>기온: {weather.temperature}°C</Text>
-      <Text>날씨: {weather.weather}</Text>
-    </View>
+    <div className="App">
+      <h1>Wearther 날씨 테스트</h1>
+
+      {weather ? (
+        <div>
+          <p>🌍 도시: {weather.name}</p>
+          <p>🌡️ 기온: {weather.main.temp}°C</p>
+          <p>⛅ 날씨: {weather.weather[0].main}</p>
+        </div>
+      ) : (
+        <p>날씨 정보를 불러오는 중...</p>
+      )}
+    </div>
   );
 }
 
+export default App;
 ```
 
-### 6. QR코드로 스캔하여 정상적인 실행 확인
+### 테스트
+![image](https://github.com/user-attachments/assets/83f4ca1d-7a29-42ce-8880-bb992fc40872) |
+---|
 
 ---
-## 위치 권한 설정
+## 📍 Geolocation 기반 날씨 조회
+
+### src/hooks/useGeolocation.js 파일 생성
+위치 가져오기용 훅
+```js
+import { useEffect, useState } from "react";
+
+export const useGeolocation = () => {
+  const [coords, setCoords] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    if (!navigator.geolocation) {
+      setError("이 브라우저는 위치 정보를 지원하지 않습니다.");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setCoords({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        });
+      },
+      () => {
+        setError("위치 정보를 가져오는 데 실패했습니다.");
+      }
+    );
+  }, []);
+
+  return { coords, error };
+};
+```
+
+### weather.js 수정
+```js
+const API_KEY = "**내 API KEY**";
+
+export const getWeatherByCoords = async (lat, lon) => {
+  const response = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`
+  );
+  const data = await response.json();
+  return data;
+};
+```
+
+### App.jsx 수정
+```js
+import { useEffect, useState } from "react";
+import { useGeolocation } from "./hooks/useGeolocation";
+import { getWeatherByCoords } from "./api/weather";
+import "./App.css";
+
+function App() {
+  const { coords, error: locationError } = useGeolocation();
+  const [weather, setWeather] = useState(null);
+
+  useEffect(() => {
+    if (coords) {
+      getWeatherByCoords(coords.lat, coords.lon).then((data) => {
+        console.log("📍 위치 기반 날씨 데이터:", data);
+        setWeather(data);
+      });
+    }
+  }, [coords]);
+
+  return (
+    <div className="App">
+      <h1>📍 내 위치 날씨</h1>
+
+      {locationError && <p>{locationError}</p>}
+
+      {weather ? (
+        <div>
+          <p>🌍 위치: {weather.name}</p>
+          <p>🌡️ 기온: {weather.main.temp}°C</p>
+          <p>⛅ 날씨: {weather.weather[0].main}</p>
+        </div>
+      ) : (
+        <p>위치 및 날씨 정보를 불러오는 중...</p>
+      )}
+    </div>
+  );
+}
+
+export default App;
+```
+
+### 테스트
+![image](https://github.com/user-attachments/assets/cab76c0f-5ce8-4feb-a8f9-f3454e41d0e7) | ![image](https://github.com/user-attachments/assets/c410f5d2-dd87-495a-9ce8-b16778a8a15c)
+---|---
+
+---
+## 오류 잡기
+### 피드백
+1. 현재 위치가 송정이 아닌데 송정이라고 뜨는 오류 발생(현재 위치는 울산)
+☞ 비슷한 위·경도에 있기 때문에 오류 발생 가능
+2. 영어 도시 이름이 별로임
+☞ 한글화 필요
+
+> 정확한 위치 정보, 한글 주소 지원 가능한 Kakao Location API 사용
+
+### [Kakao](https://developers.kakao.com/) API 키 발급 받기
+
+### src/api/location.js 파일 작성 
+```js
+const KAKAO_API_KEY = "내 KAKAO REST API 키";
+
+
+```
