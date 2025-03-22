@@ -1,4 +1,4 @@
-# Capstone Design 02
+# Capstone Design 03
 
 ## 🗂️ Wearther 흐름도 (Flowchart)
 
