@@ -5,7 +5,7 @@
 - 📱 **스마트폰 중심 UI**: 사용자는 빠르게 정보를 확인하고 싶어함
 - 🪧 **디자인 제작 전 고려 요소**
 
-| 요소 | 디자인 방향 |
+| 요소 | 디자인 |
 |---|---|
 | 화면 크기 | 모바일 기준 (갤럭시 S25 기준 384x844) |
 | 네비게이션 | 상단 아이콘 버튼 또는 하단 탭 |
@@ -16,7 +16,7 @@
 ---
 
 ## 🗂️ 앱 흐름도 (Flowchart)
-### [👉 Mermaid Live Editor에서 보기](https://mermaid.live/edit#pako:eNpNksFq20AQhl9l2GsTAj3qUGjstElp2kN7iqSDiDZ2IJaMKh2CMZhUAREbQopMZaMUBZzEhhYUY5wU8kSe2XfIamMnuu3s__3z785ui-27Nmcaq3lWsw7fq4YD8F6n_h3QbUh_Tk1YX38Hmy1KQ_qfwGLeE_0UaBjT9F-7gDclAOJ3RMOJQiv6Cn3IMU8ATzKKx0BXuRj2zBfH4i7HeUc5qjIuwpMZ4CSmbkq3HXgDFCV4PgB5Asyupa0wVhS-pYtBBGIQ42Sm-lWft5-ZLVV80Jex4iKVLc1X5aNOyT3lY7x5BJrLW5TFbZ3CEWV9wGkozh6XsdtK21lppeQdpXySLcd4HgJ2x_LuQGEmfl6WgM86_hrhVQqLvCOnYpZPuqtLAePJBiUjvE6Apgne_FXmXQV8WQJA_Qy7UTGjyxmdJiXk62rk1B2Jnpy1GqfJ1liDew3r0Jbv2ypwg_l13uAG0-TS5gdWcOQbzHDaErUC3_127OwzzfcCvsY8N6jVmXZgHf2QVdC0LZ9XDy35Txovu03L2XPd17rmFVlLP3ds7lXcwPGZ9rb9BDRAEqE)
+### [👉 Mermaid Live Editor에서 보기](https://www.mermaidchart.com/app/projects/aa93f360-7b5e-45d0-af7f-864e0c160773/diagrams/5c838077-041d-47ab-8e6e-f328b3e7c4ca/version/v0.1/edit)
 
 ```mermaid
 flowchart TD
@@ -35,26 +35,15 @@ flowchart TD
     S --> E
     E --> F["날씨 표시"] & G["옷차림 추천"] & H["설정 버튼"]
     H --> I["설정 화면"]
-    I --> J["온도 단위 선택"] & L["뒤로 가기"]
+    I --> J["테마 변경"] & L["뒤로 가기"]
 ```
 
 ### 1. 앱 진입 & 위치 권한 처리
 <table>
-  <tr>
-    <th colspan="2">앱 실행 시 <b>위치 권한 요청</b></th>
-  </tr>
-  <tr>
-    <td>📍 허용 시</td>
-    <td>❌ 거부 시</td>
-  </tr>
-  <tr>
-    <td>위치 기반 날씨 조회 진행</td>
-    <td>안내 메시지 + 수동 입력 UI</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>사용자가 직접 위치 입력 후 → 홈 화면으로 진입</td>
-  </tr>
+  <tr> <th colspan="2">앱 실행 시 <b>위치 권한 요청</b></th>                   </tr>
+  <tr> <td>📍 허용 시</td>                <td>❌ 거부 시</td>                </tr>
+  <tr> <td>위치 기반 날씨 조회 진행</td>   <td>안내 메시지 + 수동 입력 UI</td> </tr>
+  <tr> <td>    </td>                      <td>사용자가 직접 위치 입력 후 → 홈 화면으로 진입</td> </tr>
 </table>
 
 ### 2. 위치 기반 날씨 조회 & 로딩 처리
@@ -76,8 +65,10 @@ flowchart TD
   + → 설정 화면으로 이동
 
 ### 4. 설정 화면
-🌡️ 온도 단위 선택
-- 섭씨(°C) / 화씨(°F) 중 선택
+<table>
+    <tr> <th colspan="2">🌙 테마 선택</th> </tr>    
+    <tr> <td>💡LIGHT</td> <td>🌙Dark</td> </tr>
+</table>
 
 ⬅️ 뒤로 가기
   - 홈 화면으로 복귀
