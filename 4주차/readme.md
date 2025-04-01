@@ -63,3 +63,20 @@ npm run dev:all
 ## 🎨 프로토타입 제작
 ### 디자인 툴
 > Figma
+
+### 아이콘 
+#### 날씨 아이콘 라이브러리
+Weather Icons: MIT 라이선스 하에 제공 [https://github.com/erikflowers/weather-icons](https://github.com/erikflowers/weather-icons)
+> 개발 시에는 CDN 방식으로 사용
+
+#### 표정 아이콘
+아이콘 제공: Icons8
+![image](https://github.com/user-attachments/assets/676defa1-147a-40b4-a864-43bda668e075) |
+---|
+![image](https://github.com/user-attachments/assets/e247dba1-b2a7-4779-8e84-31a540fe4154) |
+![image](https://github.com/user-attachments/assets/8cef286e-cb17-4d16-8552-1af8eeecc96a) |
+![image](https://github.com/user-attachments/assets/8910f7b0-1889-43ff-a1a7-b5fb3cec5a6c) |
+![image](https://github.com/user-attachments/assets/a89c1160-270a-42eb-a779-b21c5a9f835b) |
+
+
+
