@@ -49,3 +49,17 @@ npm run dev:all
 ```
 ![image](https://github.com/user-attachments/assets/9770003e-2010-463a-b559-fcd22afef040) |
 ---|
+
+---
+## ✍️ 로고 디자인
+### 디자인 툴
+> Inkscape
+
+### Logo 제작
+![Logo](https://github.com/user-attachments/assets/62fa522f-b5a7-4229-93ec-a355b7662408)| ![Logo1](https://github.com/user-attachments/assets/be4fcd6a-64f2-4190-ae41-980d2025be04) | ![Logo2](https://github.com/user-attachments/assets/6a64eea7-7c7d-49f6-8341-0e8e159a84e2)
+---|---|---
+
+---
+## 🎨 프로토타입 제작
+### 디자인 툴
+> Figma
