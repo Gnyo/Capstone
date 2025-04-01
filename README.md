@@ -4,7 +4,7 @@
 
 - **프로젝트명**: 🌤️ Wearther
 - **목표**: 사용자의 현재 위치 날씨를 바탕으로 적절한 옷차림을 추천해주는 **웹 서비스** 개발
-- **플랫폼**: Web (React)
+- **플랫폼**: Web (Vite React)
 - **주요 기능**
   - 현재 위치의 날씨 정보 확인
   - 기온에 따른 옷차림 추천
@@ -42,7 +42,7 @@
 
 - **프론트엔드**: React & Vite
 - **날씨 API**: ~OpenWeatherMap~ → WeatherAPI
-- **위치 API**: ~브라우저 내장 `navigator.geolocation`~ → KakaoAPI
+- **위치 API**: 브라우저 내장 `navigator.geolocation`(위·경도), KakaoAPI(지역명 변환)
 - **디자인**: Figma
 - **배포**: Netlify / Vercel
 - **버전 관리**: Git, GitHub
