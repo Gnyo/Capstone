@@ -98,3 +98,4 @@ import { IconName } from "react-icons/wi";  // Weather Icons
 | 표정: 무난 |![image](https://github.com/user-attachments/assets/6a606eb8-d8f5-4820-b35e-9f64462ef963) |`import { FaRegFaceMeh } from "react-icons/fa6";` `<FaRegFaceMeh />`|
 | 표정: 나쁨 |![image](https://github.com/user-attachments/assets/ea419167-5ce7-4cde-a023-4c05cbb6ad61) |`import { FaRegFaceFrown } from "react-icons/fa6";` `<FaRegFaceFrown />`|
 | 표정: 완전나쁨 |![image](https://github.com/user-attachments/assets/aab87911-a776-4f6c-b19d-499d38649f8e)|`import { FaRegFaceTired } from "react-icons/fa6";` `<FaRegFaceTired />`|
+| 물방울 | ![image](https://github.com/user-attachments/assets/32ff44f1-97f2-4a3e-aaa7-12fb727aedf7) | `import { IoWaterSharp } from "react-icons/io5";` `<IoWaterSharp />` |
