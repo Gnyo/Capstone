@@ -1,7 +1,17 @@
 # Capstone Design 05
 
-## 디자인
-### 아이콘 
+## 🎛️ 환경 세팅
+### 라우터
+`react-router-dom`
+
+### 상태 관리
+`zustand`: React에서 전역 상태를 쉽게 관리하는 간단한 도구
+- React에서 여러 컴포넌트가 공통으로 데이터를 공유해야 할 때 사용
+  + 다크/라이트 테마 상태
+  + 사용자의 위치 정보
+
+## ✍️ 디자인
+### 아이콘
 #### 아이콘 라이브러리
 - `React Icons`: [React Icons](https://react-icons.github.io/react-icons/)
 - 라이선스: **MIT 라이선스**
@@ -18,7 +28,7 @@ import { FaSmile, FaFrown, FaMeh } from 'react-icons/fa';  // Font Awesome Icons
 import { IconName } from "react-icons/wi";  // Weather Icons
 ```
 
-### 아이콘 코드
+#### 아이콘 코드
 | 사용처 | 이미지 | 코드 |
 |--------|--------|------|
 | 검색 버튼 | ![image](https://github.com/user-attachments/assets/77fd0181-ca2a-4ddf-9d8c-9b5c0b795e9c) | `import { IoIosSearch } from "react-icons/io";` `<IoIosSearch />` |
