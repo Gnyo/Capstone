@@ -72,7 +72,9 @@ flowchart TD
 ### 디자인 툴
 > Figma
 
-![Wearther](https://github.com/user-attachments/assets/2dac1fa2-d3db-47af-9d62-15db46358923)
+[**Wearther 와이어프레임**](https://www.figma.com/design/Gq3DtzbkcW46vgP00so4ty/Wearther?node-id=0-1&t=F8YgRSC04C4B215K-1)
+---|
+![Wearther](https://github.com/user-attachments/assets/2dac1fa2-d3db-47af-9d62-15db46358923) |
 
 ---
 ## 🤔 API 피드백
