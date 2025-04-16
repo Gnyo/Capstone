@@ -41,8 +41,10 @@
 ### 메인 기능 구현
 | 상단 탭 | 하단 탭 |
 |---------|---------|
+| ![image](https://github.com/user-attachments/assets/74345a43-e850-4814-b02d-03a942c93898) | ![image](https://github.com/user-attachments/assets/db8dd322-f5e4-428d-822d-7188135c9a0b) |
 | 위치 정보 및 버튼, 설정 버튼 | HOME 버튼, OUTFIT 버튼 |
 
 | HOME | OUTFIT |
 |------|--------|
+| ![image](https://github.com/user-attachments/assets/899fd66d-3b5c-4d09-9583-bb38f0cf00d7) | ![image](https://github.com/user-attachments/assets/e076f60b-82e5-47ed-b945-bfe3c4bf4e15) |
 | 현재 날씨 + 시간별 날씨 + 주간 날씨 | 기온별 의류 추천 |
