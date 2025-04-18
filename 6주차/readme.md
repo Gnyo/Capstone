@@ -6,6 +6,14 @@
 
 ### 사용 색상
 
+| 항목   | Light Mode 색상 | Dark Mode 색상 |
+|--------|------------------|------------------|
+| 배경   | `#F5F4F1`        | `#2E3A3D`        |
+| 카드   | `#F9F3E9`        | `#384545`        |
+| 텍스트 | `#2F2E2D`        | `#EAF0E7`        |
+| 포인트 | `#E1A667`        | `#DB9F66`        |
+| 보조   | `#F2D07B`        | `#C16C50`        |
+
 ### 아이콘
 #### 아이콘 라이브러리
 - `React Icons`: [React Icons](https://react-icons.github.io/react-icons/)
@@ -40,3 +48,6 @@ import { IconName } from "react-icons/wi";  // Weather Icons
 | 표정: 나쁨 |![image](https://github.com/user-attachments/assets/ea419167-5ce7-4cde-a023-4c05cbb6ad61) |`import { FaRegFaceFrown } from "react-icons/fa6";` `<FaRegFaceFrown />`|
 | 표정: 완전나쁨 |![image](https://github.com/user-attachments/assets/aab87911-a776-4f6c-b19d-499d38649f8e)|`import { FaRegFaceTired } from "react-icons/fa6";` `<FaRegFaceTired />`|
 | 물방울 | ![image](https://github.com/user-attachments/assets/32ff44f1-97f2-4a3e-aaa7-12fb727aedf7) | `import { IoWaterSharp } from "react-icons/io5";` `<IoWaterSharp />` |
+
+---
+## 🌙 테마 설정
